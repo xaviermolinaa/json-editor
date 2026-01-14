@@ -1,3 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-@import "tailwindcss";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Monaco Editor Error Line Highlighting */
+.monaco-editor .json-error-line {
+  background-color: rgba(255, 0, 0, 0.18) !important;
+}
+
+.monaco-editor .error-glyph {
+  background: #f44336 !important;
+  width: 10px !important;
+}
+
+.monaco-editor .error-line-decoration {
+  background: #f44336 !important;
+  width: 5px !important;
+  margin-left: 3px;
+}
+
+/* Hide overview ruler error indicators on the right */
+.monaco-editor .decorationsOverviewRuler {
+  display: none !important;
+}

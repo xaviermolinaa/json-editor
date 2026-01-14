@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { JsonEditorComponent } from './components/json-editor.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [JsonEditorComponent],
+  template: '<app-json-editor></app-json-editor>',
+  styles: [`
+    :host {
+      display: block;
+      height: 100vh;
+    }
+  `]
 })
-export class App {
-  protected readonly title = signal('json-editor');
-}
+export class App {}

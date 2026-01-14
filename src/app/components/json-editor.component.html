@@ -1,0 +1,63 @@
+<div class="json-editor-container">
+  <div class="content-layout">
+    <!-- Editor Panel -->
+    <div class="editor-panel">
+      <div class="editor-header-blue">
+        <div class="header-left">
+          <button mat-icon-button (click)="formatJson()" matTooltip="Format JSON">
+            <mat-icon>format_align_left</mat-icon>
+          </button>
+          <button mat-icon-button (click)="onWrapToggle(!wrapEnabled())" matTooltip="Toggle Wrap">
+            <mat-icon>format_list_bulleted</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Indent">
+            <mat-icon>format_indent_increase</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Tools">
+            <mat-icon>build</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Settings">
+            <mat-icon>settings</mat-icon>
+          </button>
+          <span class="header-label">Code</span>
+          <mat-icon>arrow_drop_down</mat-icon>
+        </div>
+        <div class="header-right">
+          <div class="status-item">
+            @if (validationResult().isValid) {
+              <mat-icon class="status-icon-valid">check_box</mat-icon>
+            } @else {
+              <mat-icon class="status-icon-invalid">cancel</mat-icon>
+            }
+          </div>
+        </div>
+      </div>
+
+      <ngx-monaco-editor
+        #editor
+        class="monaco-editor"
+        [options]="editorOptions()"
+        [(ngModel)]="content"
+        (ngModelChange)="onContentChange($event)"
+        (onInit)="onEditorInit($event)"
+      ></ngx-monaco-editor>
+      
+      <div class="bottom-actions">
+        <button mat-button class="cancel-btn">
+          <mat-icon>close</mat-icon>
+          Cancel
+        </button>
+        <button 
+          mat-raised-button 
+          color="primary" 
+          class="save-btn"
+          (click)="save()"
+          [disabled]="!canSave()"
+        >
+          <mat-icon>save</mat-icon>
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
